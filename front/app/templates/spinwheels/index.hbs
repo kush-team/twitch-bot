@@ -1,0 +1,16 @@
+{{#link-to 'spinwheels.new' }} Crear Nueva Ruleta {{/link-to}}
+
+<ul>
+{{#each model as |spinwheel|}}
+	<li>
+		{{#link-to 'spinwheels.show' spinwheel.id}}
+			{{spinwheel.name}}
+		{{/link-to}}
+
+		{{#link-to 'spinwheels.edit' spinwheel.id}}
+			Editar
+		{{/link-to}}
+
+	</li>
+{{/each}}
+</ul>

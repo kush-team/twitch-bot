@@ -1,0 +1,14 @@
+{{#link-to 'prizes.new' }} Crear Nuevo premio {{/link-to}}
+
+<ul>
+{{#each model as |prize|}}
+	<li>
+		{{#link-to 'prizes.show' prize.id}}
+			{{prize.name}}
+		{{/link-to}}
+		{{#link-to 'prizes.edit' prize.id}}
+			edit
+		{{/link-to}}
+	</li>
+{{/each}}
+</ul>

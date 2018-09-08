@@ -1,0 +1,16 @@
+  <div class="layout-row">
+    <div class="layout-column flex-100">
+      {{input value=model.name}}
+    </div>
+  </div>
+
+  <div class="layout-row">
+	{{multiselect-checkboxes
+    	options=prizeList
+    	labelProperty='name'
+    	selection=model.prizes
+    	onchange=(action 'updateSelection')}}
+  </div>
+  <div class="layout-row">
+    <a {{action 'save'}}>Guardar</a>
+  </div>

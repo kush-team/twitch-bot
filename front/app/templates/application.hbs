@@ -1,0 +1,56 @@
+{{!-- The following component displays Ember's default welcome message. --}}
+{{!-- Feel free to remove this! --}}
+{{#paper-sidenav-container class="inner-sidenav"}}
+
+  {{#paper-card-content class="flex"}}
+    <div class="layout-fill layout-align-start-center layout-column" style="height: 500px">
+		{{#unless session.isAuthenticated}}
+			{{twitch-login}}
+		{{else}}
+			{{#paper-sidenav-toggle name="left" as |toggleAction|}}
+				{{#paper-button raised=true onClick=(action toggleAction)}}
+			  		Menu
+				{{/paper-button}}
+			{{/paper-sidenav-toggle}}		
+			{{outlet}}
+		{{/unless}}
+
+    </div>
+  {{/paper-card-content}}
+
+  {{#paper-sidenav
+    class="md-whiteframe-z2"
+    name="left"
+    position="left"
+    open=rightSideBarOpen
+    lockedOpen=false
+    onToggle=(action (mut rightSideBarOpen))}}
+    {{#paper-toolbar as |toolbar|}}
+      {{#paper-toolbar-tools}}
+      	MoncaBOT
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+	{{#paper-content padding=true}}
+    <ul>
+      <li>
+        {{paper-icon "power-settings-new" class="md-avatar-icon"}}
+        {{#link-to 'spinwheels.index'}} Ruletas {{/link-to}}
+      </li>
+      <li>
+        {{paper-icon "power-settings-new" class="md-avatar-icon"}}
+        {{#link-to 'prizes.index'}} Premios {{/link-to}}
+      </li>
+
+      <li>
+        {{paper-icon "power-settings-new" class="md-avatar-icon"}}
+        {{#link-to 'winners.index'}} Ganadores {{/link-to}}
+      </li>
+
+      <li>
+        {{paper-icon "power-settings-new" class="md-avatar-icon"}}
+  	     <a {{action 'invalidateSession'}}>Logout</a>
+      </li>
+    </ul>
+    {{/paper-content}}
+  {{/paper-sidenav}}
+{{/paper-sidenav-container}}

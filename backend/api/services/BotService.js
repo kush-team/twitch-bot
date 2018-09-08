@@ -51,12 +51,10 @@ module.exports = {
 		});
 
 		client.on("subscription", function (channel, username, method, message, userstate) {
-			channel = '#moncake';
     		BotService.turnTheWheel(channel, username);
 		});
 
 		client.on("resub", function (channel, username, months, message, userstate, methods) {
-			channel = '#moncake';
     		BotService.turnTheWheel(channel, username);
 		});
 

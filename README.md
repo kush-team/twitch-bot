@@ -20,7 +20,5 @@ v0.0.1
 
 
 ### Todos
-
  - UX / UI
- - Socket integration
- - Overlay for obs
+ - Security Polices

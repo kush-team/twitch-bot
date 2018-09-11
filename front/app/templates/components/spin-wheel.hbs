@@ -1,0 +1,16 @@
+{{#if visible}}
+	<p>Spinning For: {{winner.name}}</p>
+	<p>{{currentPrize.name}}</p>
+{{/if}}
+
+{{#if visibleWinner}}
+	<p>{{winner.name}} has won {{winner.prize.name}}</p>
+{{/if}}
+
+
+{{#if testing}}
+<p>
+	<a {{action 'test'}}>Testing</a>
+</p>
+{{/if}}
+

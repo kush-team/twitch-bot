@@ -8,7 +8,8 @@ export default Controller.extend({
 
   init () {
     this._super();
-    this.set('prizeList', this.get('store').findAll('prize'));
+    this.set('prizeList', this.get('store').query('prize', {channel: this.get('session').get('currentUser.channel')}));
+    this.set('scopes', this.get('store').findAll('scope'));
   },
 
 

@@ -7,5 +7,11 @@
 
 module.exports = {
 
+	name: 'string',
+	eventName: 'string',
+	minTier: 'number',
+	minMonths: 'number',
+	maxMonths: 'number',
+	minAmount: 'number',
+	maxAmount: 'number'
 };
-

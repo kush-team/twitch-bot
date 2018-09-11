@@ -16,8 +16,11 @@ module.exports = {
 
     prizes: {
         collection: 'prize'
-    }
+    },
 
+    scope: {
+    	model: 'scope'
+    }
   },
 
 };

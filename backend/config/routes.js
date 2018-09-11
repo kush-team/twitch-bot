@@ -14,14 +14,25 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+  'POST /api/v1/spinwheels/test': {
+    controller: 'Spinwheel',
+    action: 'test'
+  },
+
+
   'POST /auth/twitch': {
     controller: 'Auth',
     action: 'twitch'
   },
 
   '/socket/subscribe': {
-    controller: 'Auth',
+    controller: 'Socket',
     action: 'subscribe'
-  }  
+  } ,
+
+  '/data/fixture/load': {
+    controller: 'Fixture',
+    action: 'load'
+  }
 
 };

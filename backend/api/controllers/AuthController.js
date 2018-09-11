@@ -29,14 +29,6 @@ module.exports = {
             if (info) return res.forbidden(info);
             return res.ok(user);
         })(req, res);
-    },
-
-    subscribe: function (req, res, next) {
-        var ids, data = req.allParams(), model, subscribed = {};
-        var result = {}; 
-        Channel.subscribe(req, data['channel']);
-        result = {success: true};
-        res.json(result);    
     }
 };
 

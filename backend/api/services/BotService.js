@@ -43,43 +43,35 @@ module.exports = {
 
 
 		client.on("cheer", function (channel, userstate, message) {
-
+			Scope.findOne({eventName: 'cheer'}).where({minAmount: { '>=': userstate.bits }, maxAmount: { '<=': userstate.bits }}).exec(function (err, scope) {
+				if (scope) {
+    				SpinWheelService.spin(channel, username, scope);
+				}
+			})
 		});	
 
 		client.on("hosted", function (channel, username, viewers, autohost) {
-		    console.log(username, viewers, autohost);
+
 		});
 
 		client.on("subscription", function (channel, username, method, message, userstate) {
-    		BotService.turnTheWheel(channel, username);
+			Scope.findOne({eventName: 'subcription'}).exec(function (err, scope) {
+				if (scope) {
+    				SpinWheelService.spin(channel, username, scope);
+				}
+			})
 		});
 
 		client.on("resub", function (channel, username, months, message, userstate, methods) {
-    		BotService.turnTheWheel(channel, username);
+			Scope.findOne({eventName: 'resub'}).where({minMonths: { '>=': months }, maxMonths: { '<=': months }}).exec(function (err, scope) {
+				if (scope) {
+    				SpinWheelService.spin(channel, username, scope);
+				}
+			});			
 		});
 
 		client.on("chat", function (channel, userstate, message, self) {
 		    if (self) return;
 		});		
-	},
-
-
-	join (channel) {
-		client.join(channel)
-	},
-
-
-	turnTheWheel (channel, username) {
-		Channel.findOne({name: channel}).exec(function (err, channelObject) {
-			Spinwheel.findOne({channel: channelObject.id}).populate('prizes').exec(function (err, spinwheel) {
-				let arr = spinwheel.prizes;
-				let prize = arr[Math.floor(Math.random() * arr.length)];
-
-				Winner.create({username: username, channel: channelObject.id, prize: prize.id}).exec(function (err, winnerCreated) {
-					client.say(channel, username + ' has won ' + prize.name);
-				});
-			});
-		});
-
 	},
 }

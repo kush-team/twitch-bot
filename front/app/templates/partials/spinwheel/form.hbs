@@ -3,6 +3,18 @@
       {{input value=model.name}}
     </div>
   </div>
+  <div class="layout-row">
+    <div class="layout-column flex-100">
+    {{#paper-select
+      label="Scope"
+      options=scopes
+      selected=model.scope
+      onChange=(action (mut model.scope))
+      as |scope|}}
+      {{scope.name}}
+    {{/paper-select}}
+    </div>
+  </div>
 
   <div class="layout-row">
 	{{multiselect-checkboxes

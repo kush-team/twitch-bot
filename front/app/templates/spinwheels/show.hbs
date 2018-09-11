@@ -1,1 +1,10 @@
 {{model.name}}
+
+{{model.scope.name}}
+<ul>
+	{{#each model.prizes as |prize|}}
+		<li>{{prize.name}} ({{prize.stock}})</li>
+	{{/each}}
+</ul>
+
+{{spin-wheel testing=true spinwheel=model}}

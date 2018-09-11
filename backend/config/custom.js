@@ -15,7 +15,7 @@ module.exports.custom = {
   * Any other custom config this Sails app should use during development.    *
   *                                                                          *
   ***************************************************************************/
-  clientID: 'YOUR_CLIENT_ID',
-  username: 'YOR_BOT_NAME',
-  password: 'YOUR_AUTH_PASSWORD'
+  clientID: 'kr2lyd6vjap0nmoxlmrx0316klx8an',
+  username: 'MoncaBot',
+  password: 'd1maktmyjnqh1d9n40fhltiyqeou1w'
 };

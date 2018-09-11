@@ -1,12 +1,5 @@
-/**
- * ScopeController
- *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
- */
+const SailsEmber = require('sails-ember-rest');
+const controller = new SailsEmber.controller({
+});
 
-module.exports = {
-  
-
-};
-
+module.exports = controller;

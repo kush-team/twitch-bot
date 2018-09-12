@@ -10,7 +10,7 @@ export default Base.extend({
     let session = this.get('session');
     return new Promise((resolve, reject) => {
       return Ember.$.ajax({
-        url: 'http://localhost:1337/auth/twitch',
+        url: 'http://192.168.0.200:1337/auth/twitch',
         type: 'POST',
         data: {access_token: data.token}
       }).done(function (user) {
@@ -23,7 +23,7 @@ export default Base.extend({
     let session = this.get('session');
     return new Promise((resolve, reject) => {
       return Ember.$.ajax({
-        url: 'http://localhost:1337/auth/twitch',
+        url: 'http://192.168.0.200:1337/auth/twitch',
         type: 'POST',
         data: {access_token: data.token}
       }).done(function (user) {

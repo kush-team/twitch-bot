@@ -1,5 +1,6 @@
-<h2>Welcome {{session.currentUser.display_name}}</h2>
-<img src={{session.currentUser.avatar}} width="48">
-
-
-{{spin-wheel}}
+<div class="dashboard-wrapper layout-column">
+	<div class="kt-avatar">
+		<img src={{session.currentUser.avatar}} width="300">
+	</div>
+	<h2>Bienvenido {{session.currentUser.display_name}}</h2>
+</div>

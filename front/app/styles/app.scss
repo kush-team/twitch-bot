@@ -1,1 +1,117 @@
 @import 'ember-paper';
+
+$primary: "lime";
+$accent: "light-green";
+$warn: "pink";
+
+
+.kt-avatar {
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    margin: 0 15px;
+
+    &.small {
+		height: 48px;
+		width: 48px;
+    }
+
+
+}
+
+.twitch-login {
+	text-align: center;
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+
+	.login-wrapper {
+		background: #f9f9f9;
+		width: 300px;
+		min-height: 180px;
+		border: 1px solid #ddd;
+		margin: 0 auto;
+		-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+
+		h2 {
+			margin-top: 40px;
+		}
+
+		.twitch-connect {
+			cursor: pointer;
+		}
+	}
+}
+
+.md-button {
+	padding: 0 25px;
+	border-radius: 50px;
+}
+
+
+.kt-user {
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .8px;
+	font-size: 18px;
+}
+
+.main-container {
+	max-width: 1080px;
+	margin: 15px auto;
+	width: 100%;
+}
+
+.md-sidenav-left {
+	ul {
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.md-avatar-icon {
+		margin-right: 15px;
+	}
+
+	.md-button {
+		margin: 8px -1px;
+		padding: 0 0 0 10px;
+		width: 100%;
+		display: block;
+		border-radius: 0;
+		min-width: 20px;
+		text-transform: none;
+		color: #333;
+		font-weight: 400;
+		font-size: 14px;
+		letter-spacing: .8px;
+		text-align: left;
+	}
+}
+
+.dashboard-wrapper {
+	text-align: center;
+
+	.kt-avatar {
+		height: 300px;
+		width: 300px;
+		margin: 50px auto 0;
+	}
+}
+
+.md-toolbar-tools {
+	md-icon {
+		margin-right: 10px;
+	}
+
+	h2 {
+		padding-left: 35px;
+	}
+}

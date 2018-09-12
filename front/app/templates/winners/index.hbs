@@ -1,11 +1,12 @@
 {{#paper-list}}
-  {{#paper-subheader}}Listado de ganadores{{/paper-subheader}}
-		{{#each model as |winner|}}
-    		{{#paper-item class="md-3-line"}}
-			  <div class="md-list-item-text">
-			    <h3>{{winner.username}}</h3>
-			    <h4>{{winner.prize.name}}</h4>
-			  </div>
-    		{{/paper-item}}
-		{{/each}}
+	{{#paper-subheader}}Listado de ganadores{{/paper-subheader}}
+	{{#each model as |winner|}}
+		{{#paper-item class="md-3-line"}}
+		  <div class="md-list-item-text">
+		    <h3>{{winner.username}}</h3>
+		    <p>{{winner.prize.name}}</p>
+		  </div>
+		{{/paper-item}}
+	{{/each}}
+	{{paper-divider}}
 {{/paper-list}}

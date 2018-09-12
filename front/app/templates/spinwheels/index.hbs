@@ -1,18 +1,35 @@
-{{#link-to 'spinwheels.new' }} Crear Nueva Ruleta {{/link-to}}
 
-<ul>
-{{#each model as |spinwheel|}}
-	<li>
-		{{#link-to 'spinwheels.show' spinwheel.id}}
-			{{spinwheel.name}}
-		{{/link-to}}
 
-		{{#link-to 'spinwheels.edit' spinwheel.id}}
-			Editar
-		{{/link-to}}
+{{#paper-list}}
 
-		<a {{action 'test' spinwheel}}>Test</a>
+  {{#paper-subheader}}Ruletas{{/paper-subheader}}
+  {{#each model as |spinwheel|}}
+    {{#paper-item as |controls|}}
+      {{#link-to 'spinwheels.show' spinwheel.id}}
+      	{{spinwheel.name}}
+      {{/link-to}}
+      <div class="md-secondary-container">
+     {{#link-to 'spinwheels.edit' spinwheel.id}}
+     		{{#paper-button primary=true}}
+     			{{paper-icon "create"}}
+     			Editar
+     		{{/paper-button}}
+     		{{/link-to}}
+     		<a {{action 'test' spinwheel}}>
+				{{#paper-button primary=true}}
+					{{paper-icon "pie-chart"}}
+					Test
+				{{/paper-button}}
+     		</a>
+     	</div>
+    {{/paper-item}}
+  {{/each}}
 
-	</li>
-{{/each}}
-</ul>
+  {{paper-divider}}
+
+  {{/paper-list}}
+
+  {{#link-to 'spinwheels.new' }}
+    {{#paper-button raised=true primary=true}}Crear Nueva Ruleta{{/paper-button}}
+  {{/link-to}}
+

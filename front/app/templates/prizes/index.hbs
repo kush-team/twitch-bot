@@ -1,14 +1,28 @@
-{{#link-to 'prizes.new' }} Crear Nuevo premio {{/link-to}}
 
-<ul>
-{{#each model as |prize|}}
-	<li>
-		{{#link-to 'prizes.show' prize.id}}
-			{{prize.name}}
-		{{/link-to}}
-		{{#link-to 'prizes.edit' prize.id}}
-			edit
-		{{/link-to}}
-	</li>
-{{/each}}
-</ul>
+
+{{#paper-list}}
+
+  {{#paper-subheader}}Premios{{/paper-subheader}}
+  {{#each model as |prize|}}
+    {{#paper-item as |controls|}}
+      {{#link-to 'prizes.show' prize.id}}
+      	{{prize.name}}
+      {{/link-to}}
+	    <div class="md-secondary-container">
+		    {{#link-to 'prizes.edit' prize.id}}
+		 		{{#paper-button primary=true}}
+		 			{{paper-icon "create"}}
+		 			Editar
+		 		{{/paper-button}}
+			{{/link-to}}
+ 		</div>
+    {{/paper-item}}
+  {{/each}}
+
+  {{paper-divider}}
+
+{{/paper-list}}
+
+{{#link-to 'prizes.new' }}
+  {{#paper-button raised=true primary=true}}Crear Nuevo premio{{/paper-button}}
+{{/link-to}}

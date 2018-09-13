@@ -27,12 +27,29 @@ const scopes = [{
 		maxAmount: 1000000		
 	}];
 
+const prizetypes = [{
+	name: 'StreamElements Points',
+	integration: 'streamelements',
+}, {
+	name: 'StreamLabs Points',
+	integration: 'streamelabs',
+}, {
+	name: 'Custom',
+	integration: ''
+}];
+
 
 const SailsEmber = require('sails-ember-rest');
 const controller = new SailsEmber.controller({
 	load: function () {		
+
 		Scope.createEach(scopes).exec(function (err, scopes) {
 	
+		});
+		
+
+		Prizetype.createEach(prizetypes).exec(function (err, scopes) {
+			res.ok();
 		});
 	}
 });

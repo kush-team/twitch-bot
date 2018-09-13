@@ -9,6 +9,9 @@
       	{{prize.name}}
       {{/link-to}}
 	    <div class="md-secondary-container">
+
+        {{prize.type.name}}
+
 		    {{#link-to 'prizes.edit' prize.id}}
 		 		{{#paper-button primary=true}}
 		 			{{paper-icon "create"}}

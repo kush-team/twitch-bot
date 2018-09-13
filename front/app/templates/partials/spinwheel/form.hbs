@@ -1,28 +1,26 @@
+{{#paper-form onSubmit=(action "save") as |form| }}
   <div class="layout-row">
     <div class="layout-column flex-100">
-      {{input value=model.name}}
+      {{form.input label="Name" value=model.name onChange=(action (mut model.name))}}
+      {{#paper-select
+        label="Scope"
+        options=scopes
+        selected=model.scope
+        onChange=(action (mut model.scope))
+        as |scope|}}
+        {{scope.name}}
+      {{/paper-select}}      
     </div>
   </div>
   <div class="layout-row">
-    <div class="layout-column flex-100">
-    {{#paper-select
-      label="Scope"
-      options=scopes
-      selected=model.scope
-      onChange=(action (mut model.scope))
-      as |scope|}}
-      {{scope.name}}
-    {{/paper-select}}
-    </div>
-  </div>
-
-  <div class="layout-row">
-	{{multiselect-checkboxes
-    	options=prizeList
-    	labelProperty='name'
-    	selection=model.prizes
-    	onchange=(action 'updateSelection')}}
+  <p>Prizes</p>
+  {{multiselect-checkboxes
+      options=prizeList
+      labelProperty='name'
+      selection=model.prizes
+      onchange=(action 'updateSelection')}}
   </div>
   <div class="layout-row">
-    <a {{action 'save'}}>Guardar</a>
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
   </div>
+{{/paper-form}}

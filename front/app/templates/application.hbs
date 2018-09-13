@@ -11,7 +11,7 @@
 			<div class="main-container">
         <div class="twitch-login">
           <div class="login-wrapper">
-            <h2>MoncaBot</h2>
+            <h2></h2>
             {{twitch-login}}
           </div>
         </div>
@@ -20,11 +20,11 @@
       {{#paper-toolbar}}
         {{#paper-toolbar-tools}}
           {{#paper-sidenav-toggle name="left" as |toggleAction|}}
-            {{#paper-button raised=true onClick=(action toggleAction)}}
-                {{paper-icon "menu"}}<span>Menu</span> 
+            {{#paper-button onClick=(action toggleAction)}}
+                {{paper-icon "menu"}} 
             {{/paper-button}}
             <h2>
-              MoncaBot
+              
             </h2>
           {{/paper-sidenav-toggle}}   
           <span class="flex"></span>
@@ -53,7 +53,7 @@
     onToggle=(action (mut rightSideBarOpen))}}
 	{{#paper-content padding=true}}
     <h2>
-      MoncaBot
+      
     </h2>
     <ul>
       <li>
@@ -84,6 +84,13 @@
           {{/paper-button}}
         {{/link-to}}
       </li>
+      <li>
+        {{#link-to 'integrations'}}
+          {{#paper-button}}
+            {{paper-icon "mood" class="md-avatar-icon"}}<span>Intregraciones</span>
+          {{/paper-button}}
+        {{/link-to}}
+      </li>      
       <li>
         <a {{action 'invalidateSession'}}>
           {{#paper-button}}

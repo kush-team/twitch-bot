@@ -19,9 +19,7 @@ module.exports = {
 	},
 
 	spin (channel, username, scope) {
-
-		channel = '#moncake';
-
+		
 		Channel.findOne({name: channel}).exec(function (err, channelObject) {
 			Spinwheel.findOne({channel: channelObject.id, scope: scope.id}).populate('prizes').exec(function (err, spinwheel) {
 				

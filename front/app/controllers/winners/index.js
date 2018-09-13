@@ -23,6 +23,13 @@ export default Controller.extend({
 
     this._super();
 
+  },
+
+  actions: {
+    paid (winner) {
+      winner.set('charged', true);
+      winner.save();
+    }
   }
 
    

@@ -1,8 +1,15 @@
 {{#if visible}}
-	<p>Spinning For: {{winner.name}}</p>
-	<p>{{currentPrize.name}}</p>
+	<div>
+		<h2>Spinning For {{winner.name}}</h2>
+	</div>
+	<div id="machine">
+	  {{#each prizes as |prize|}}
+	  	<div>{{prize.name}}</div>
+	  {{/each}}
+	</div>
 {{/if}}
 
 {{#if visibleWinner}}
 	<p>{{winner.name}} has won {{winner.prize.name}}</p>
 {{/if}}
+

@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { later } from '@ember/runloop';
+import { later, next } from '@ember/runloop';
+ 
 
 export default Component.extend({
   socket: service(),
@@ -10,7 +11,6 @@ export default Component.extend({
   timerRamdon: null,
   count: 0,
   visibleWinner: false,
-  channelId: null,
 
   init () {
     this._super();
@@ -20,41 +20,59 @@ export default Component.extend({
     let model = this.get('model');
     let _this = this;
 
-    socket.subscribe('5b93ddeee3ac042998812d58');
+    socket.subscribe(this.get('channelId'));
 
     socket.on('channel', function (msg) {
-    	_this.set('winner', {name: msg.username, prize: msg.prize});
-    	_this.set('prizes', msg.prizes);
-    	_this.start();
+      if (msg.verb === "spinwheel") {
+      	_this.set('winner', {name: msg.username, prize: msg.prize});
+
+        msg.prizes.forEach(function (prize, index) {
+          console.log(prize)
+          if (prize.name === msg.prize.name) {
+            _this.set('prizeWinnerIndex', index)
+          }
+        });
+
+      	_this.set('prizes', msg.prizes);
+        _this.set('visible', true);
+        later(_this, function () {
+          _this.start()
+        }, 200)
+      }
     });
 
+  },
 
+  didInsertElement () {
+    this._super();
   },
 
 
   start() {
-  	this.set('visible', true);
-  	this.set('count', 0);
-  	this.ramdonPrize();
+
+  
+    let el = document.querySelector('#machine');
+    let _this = this;
+
+    let machine = new SlotMachine(el, {
+      active: 2,
+      delay: 500,
+      auto: false,
+      randomize() {
+        return _this.get('prizeWinnerIndex');
+      }
+    });
+
+    machine.shuffle(this.get('prizes.length') * 2, function (param) {
+      later(_this, function () {
+        _this.set('visible', false);
+        _this.set('visibleWinner', true);
+        later(_this, function () {
+          _this.set('visibleWinner', false);
+        }, 1500)
+      }, 1000)      
+    });
   },
 
-  ramdonPrize () {
-  	let prizes = this.get('prizes');
-  	let length = this.get('prizes.length');
-  	
-  	this.set('currentPrize', prizes.objectAt(Math.floor(Math.random() * length)));
-    	later(this, function() {
-    		this.set('count', this.get('count') + 1);
-    		if (this.get('count') < 50)
-    			this.ramdonPrize();
-    		else {
-    		   this.set('visible', false);
-    		   this.set('visibleWinner', true);
-    		   later(this, function () {
-    		   		this.set('visibleWinner', false);
-    		   }, 2500);
-    		}
-  	}, 300);
-  },
 
 });

@@ -6,6 +6,6 @@ export default Route.extend({
 	session: service(),
 
 	model () {
-		return this.get('store').query('winner', { channel: this.get('session').get('currentUser.channel'), limit: 25, sort: 'createdAt DESC' })
+		return this.get('store').query('winner', { channel: this.get('session').get('currentUser.channel'), limit: 25, sort: 'createdAt DESC', charged: false })
 	}
 });

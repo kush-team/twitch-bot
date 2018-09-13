@@ -8,6 +8,8 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('integrations');
+
   this.route('winners', function() {
   });
 
@@ -21,6 +23,7 @@ Router.map(function() {
     this.route('edit', { path: ":spinwheel_id/edit" });
     this.route('show', { path: ":spinwheel_id/show" });
   });
+
 });
 
 export default Router;

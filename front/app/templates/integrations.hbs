@@ -1,0 +1,25 @@
+{{#paper-form onSubmit=(action "save") as |form| }}
+  <div class="layout-row">
+    <div class="layout-column flex-100">
+	{{model.name}}
+	{{form.input label="StreamElements Token" value=model.streamElementsToken onChange=(action (mut model.streamElementsToken))}}
+	{{#if model.streamElementsToken}}
+		{{#unless model.streamElementsChannelId}}
+			{{#paper-button primary=true onClick=(action 'testStreamElements')}}
+				{{paper-icon "check-circle"}} Testear StreamElements
+			{{/paper-button}}
+		{{else}}
+			{{#paper-button primary=true disabled=true}}
+				{{paper-icon "check-circle"}} Verificado
+			{{/paper-button}}
+		{{/unless}}
+	{{/if}}
+
+	{{form.input label="StreamLabel Token" value=model.streamLabelToken onChange=(action (mut model.streamLabelToken))}}
+
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+  </div>
+{{/paper-form}}

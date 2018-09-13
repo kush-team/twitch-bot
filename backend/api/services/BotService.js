@@ -26,7 +26,7 @@ module.exports = {
 
 		client.on("join", function (channel, username, self) {
 			if (self) {
-				//client.say(channel, 'MoncaBot al servicio!');
+				client.say(channel, 'MoncaBot al servicio!');
 			} else {
 				/*
 				Greeting.find({username: username, channel: channel}).exec(function (err, greeting) {
@@ -74,4 +74,8 @@ module.exports = {
 		    if (self) return;
 		});		
 	},
+
+	say (channel, msg) {
+		client.say(channel, msg);
+	}
 }

@@ -1,10 +1,20 @@
+{{#paper-form onSubmit=(action "save") as |form| }}
+  <div class="layout-row">
+    <div class="layout-column flex-100">
+    	{{form.input label="Name" value=model.name onChange=(action (mut model.name))}}
+		{{form.input label="Stock" type="number" value=model.stock onChange=(action (mut model.stock))}}
+	    {{#paper-select
+	      label="Type"
+	      options=typesAvailable
+	      selected=model.type
+	      onChange=(action (mut model.type))
+	      as |type|}}
+	      {{type.name}}
+	    {{/paper-select}}	
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+  </div>
+{{/paper-form}}
 
-<div class="layout-row">
-	<div class="layout-column flex-100">
-		{{input value=model.name}}
-		{{input type="number" value=model.stock}}
-	</div>
-</div>
-<div class="layout-row">
-	<a {{action 'save'}}>Guardar</a>
-</div>

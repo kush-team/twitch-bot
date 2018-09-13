@@ -6,30 +6,32 @@
  * Released under the MIT license
  */
  body {
-    font-size: 56px;
+    color: #fff;
  }
 
 
+.winner {
+    padding: 0 25px;
+}
 
- #machine {
-    height: 67px;
+#machine {
+    height: 62px;
     overflow: hidden;
     display: inline-block;
     text-align: left;
-    left: -500px;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 2s;    
+    padding: 0 25px;
 }
 
-@-webkit-keyframes machine {
-    100% { left: 0; }
+.slot {
+    border: solid 2px;
+    background: #009688;
+    color: #fff;
+    padding: 0 25px;
+    border-radius: 15px;     
+    font-size: 48px;
 }
 
-@keyframes machine {
-    100% { left: 0; }
-}
+
 
 .slotMachineNoTransition {
     -webkit-transition: none !important;

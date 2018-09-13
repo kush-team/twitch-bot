@@ -27,7 +27,6 @@ export default Component.extend({
       	_this.set('winner', {name: msg.username, prize: msg.prize});
 
         msg.prizes.forEach(function (prize, index) {
-          console.log(prize)
           if (prize.name === msg.prize.name) {
             _this.set('prizeWinnerIndex', index)
           }
@@ -37,7 +36,7 @@ export default Component.extend({
         _this.set('visible', true);
         later(_this, function () {
           _this.start()
-        }, 200)
+        }, 400)
       }
     });
 
@@ -65,12 +64,16 @@ export default Component.extend({
 
     machine.shuffle(this.get('prizes.length') * 2, function (param) {
       later(_this, function () {
-        _this.set('visible', false);
         _this.set('visibleWinner', true);
+        _this.$('#machine').addClass('flash')
         later(_this, function () {
-          _this.set('visibleWinner', false);
-        }, 1500)
-      }, 1000)      
+          _this.$('.component').addClass('slideOutLeft')
+          later(_this, function() {
+            _this.set('visible', false);
+            _this.set('visibleWinner', false);
+          }, 1500);
+        }, 2000)
+      }, 200)      
     });
   },
 

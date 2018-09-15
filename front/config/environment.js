@@ -46,5 +46,12 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+
+  ENV['ember-simple-auth-token'] = {
+    tokenPropertyName: 'token', // Key in server response that contains the access token
+    authorizationHeaderName: 'Authorization', // Header name added to each API request
+    authorizationPrefix: 'Bearer ', // Prefix added to each API request    
+  };  
+
   return ENV;
 };

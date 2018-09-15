@@ -19,4 +19,40 @@ module.exports.policies = {
 
   '*': true,
 
+  ChannelController: {
+    '*': 'twitch',
+  },
+
+  GreetingController: {
+    '*': 'twitch',
+  },
+
+  PrizeController: {
+    '*': 'twitch',
+    'find': true,
+  },
+
+  PrizetypeController: {
+    '*': 'twitch',
+    'find': true,
+  },      
+
+  ScopeController: {
+    '*': 'twitch',
+    'find': true,
+  },
+
+  SpinwheelController: {
+    '*': 'twitch',
+    'find': true,
+  },  
+
+  UserController: {
+    '*': 'twitch',
+  },  
+
+  WinnerController: {
+    '*': 'twitch',
+  },    
+
 };

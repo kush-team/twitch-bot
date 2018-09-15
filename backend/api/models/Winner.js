@@ -24,6 +24,10 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     username: 'string',
 
+    spinwheel: {
+        model: 'spinwheel'
+    },
+
     prize: {
         model: 'prize'
     },

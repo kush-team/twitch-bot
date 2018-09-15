@@ -27,8 +27,12 @@ export default Controller.extend({
 
   actions: {
     paid (winner) {
-      winner.set('charged', true);
-      winner.save();
+      winner.paid();
+    },
+
+    repeat (winner) {
+
+      winner.repeat();
     }
   }
 

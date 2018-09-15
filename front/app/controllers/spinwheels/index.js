@@ -6,13 +6,7 @@ export default Controller.extend({
 
   actions: {
     test(spinwheel) {
-      Ember.$.ajax({
-        url: 'http://localhost:1337/api/v1/spinwheels/test',
-        type: 'POST',
-        data: {username: 'Testing', channel: this.get('session.currentUser.channel'), spinwheel: spinwheel.get('id')}
-      }).done(function (result) {
-          console.log(result);
-      }).catch((error) => run(null, reject, error));;           
+      spinwheel.test();
     },
   }    
 });

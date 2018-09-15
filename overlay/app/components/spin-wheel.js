@@ -24,7 +24,7 @@ export default Component.extend({
 
     socket.on('channel', function (msg) {
       if (msg.verb === "spinwheel") {
-      	_this.set('winner', {name: msg.username, prize: msg.prize});
+      	_this.set('winner', {name: msg.username, prize: msg.prize, spinwheel: msg.spinwheel});
 
         msg.prizes.forEach(function (prize, index) {
           if (prize.name === msg.prize.name) {
@@ -61,8 +61,8 @@ export default Component.extend({
         return _this.get('prizeWinnerIndex');
       }
     });
-
-    machine.shuffle(this.get('prizes.length') * 2, function (param) {
+    
+    machine.shuffle(5, function (param) {
       later(_this, function () {
         _this.set('visibleWinner', true);
         _this.$('#machine').addClass('flash')

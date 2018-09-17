@@ -2,9 +2,15 @@
 	{{#paper-subheader}}Listado de ganadores{{/paper-subheader}}
 	{{#each model as |winner|}}
 	    {{#paper-item as |controls|}}
-	      	<h3>{{winner.username}} </h3>
+	    	<div class="md-list-item-text">
+		      	<h3>{{winner.username}} </h3>
+	      		<h4>{{winner.prize.name}}</h4>
+		    </div>
 		    <div class="md-secondary-container">
-		 		{{winner.prize.name}}
+				{{#paper-button primary=true onClick=(action 'repeat' winner)}}
+					{{paper-icon "pie-chart"}}
+					Repeat
+				{{/paper-button}}
 		 		{{#unless winner.charged}}
 			 		{{#paper-button primary=true onClick=(action "paid" winner)}}
 			 			{{paper-icon "check-circle-outline"}}
@@ -14,14 +20,8 @@
 			 			{{paper-icon "check-circle"}}
 			 		{{/paper-button}}
 			 	{{/unless}}
-	     		<a {{action 'repeat' winner}}>
-					{{#paper-button primary=true}}
-						{{paper-icon "pie-chart"}}
-						Repeat
-					{{/paper-button}}
-	     		</a>			 	
 	 		</div>
 	    {{/paper-item}}		
+		{{paper-divider}}
 	{{/each}}
-	{{paper-divider}}
 {{/paper-list}}

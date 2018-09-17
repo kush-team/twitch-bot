@@ -15,23 +15,26 @@
 }
 
 #machine {
-    height: 62px;
+    height: 64px;
+    padding-top: 7px;
+    padding-bottom: 1px;
     overflow: hidden;
     display: inline-block;
     text-align: left;
-    padding: 0 25px;
+    border: solid 2px;
+    border-radius: 15px;
 }
 
 .slot {
-    border: solid 2px;
     background: #009688;
     color: #fff;
     padding: 0 25px;
-    border-radius: 15px;     
     font-size: 48px;
+    border: solid 1px;
 }
 
-
+.component {
+}
 
 .slotMachineNoTransition {
     -webkit-transition: none !important;

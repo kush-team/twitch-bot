@@ -27,11 +27,12 @@ export default Controller.extend({
 
   actions: {
     paid (winner) {
-      winner.paid();
+      winner.paid().then(function () {
+        winner.set('charged', true);
+      });
     },
 
     repeat (winner) {
-
       winner.repeat();
     }
   }

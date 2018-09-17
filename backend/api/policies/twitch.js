@@ -7,7 +7,6 @@ module.exports = function (req, res, next) {
 		if (parts.length === 2) {
 			const scheme = parts[0];
 			const credentials = parts[1];
-
 			if (TOKEN_RE.test(scheme)) {
 				if (!TwitchAPIService.validate(credentials)) {
 					return res.forbidden();

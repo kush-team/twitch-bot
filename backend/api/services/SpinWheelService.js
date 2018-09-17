@@ -31,7 +31,8 @@ module.exports = {
 			verb: 'spinwheel',
 			username: username,  
 			prizes: prizes,
-			prize: prize
+			prize: prize,
+			spinwheel: spinwheel
 		};
 
 		var cId = channel.id;
